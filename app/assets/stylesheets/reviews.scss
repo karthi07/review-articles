@@ -3,7 +3,7 @@
 /* stylelint-disable selector-list-comma-newline-after */
 
 .review-container {
-  width: 80%;
+  width: 65%;
   margin: 0 auto;
 }
 
@@ -105,6 +105,16 @@ h6 {
 .blog-post-meta {
   margin-bottom: 1.25rem;
   color: #999;
+}
+
+.card-holder {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+
+.card-body {
+  padding-top: 0;
 }
 
 /*

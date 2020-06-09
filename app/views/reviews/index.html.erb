@@ -1,26 +1,27 @@
 
-<h1>Reviews</h1>
+<div class="card border-light mb-3" >
+  <div class="card-header h3">Reviews</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @reviews.each do |review| %>
-      <tr>
-        <td><%= review.content %></td>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
+    <div class="card-holder">
+      <div class="row no-gutters">
+        <div class="col-md-auto">
+          <%# <img src="..." class="card-img" alt="..."> %>
+          <%= image_tag 'Karthick.jpg' , class_name: "card-img", size: "80x80", alt: "User image" %>
+        </div>
+        <div class="col">
+          <div class="card-body">
+            <p class="card-title"><%=  review.user.username %></p>
+            <h5 class="card-title"> <%= review.content %></h5>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<% end %>
 <br>
 
 <%= link_to 'New Review', new_review_path %>
