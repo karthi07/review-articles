@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
+    @review = Review.new
     if user_signed_in?
       @reviews = Review.where(user: current_user.following_list + [current_user] )
     else

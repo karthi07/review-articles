@@ -1,6 +1,14 @@
+<div class="card my-4">
+  <div class="card-body">
+    <p class="w-review"> REVIEW SOMETHING </p>
+    <%= render 'form', review: @review %>
+  </div>
+</div>
 
-<div class="card border-light mb-3" >
-    <div class="card-header h3">Reviews</div>
+
+<div class="card border-light my-4" >
+    <div class="card-header ">5 New Reviews</div>
+
     <div class="card-list">
     <% @from_time = Time.now %>
     <%= render @reviews, locals: {from_time: @from_time} %>

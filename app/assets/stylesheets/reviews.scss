@@ -4,7 +4,9 @@
 
 .review-container {
   width: 65%;
+  min-height: 100vh;
   margin: 0 auto;
+  background-color: rgba($color: #6f7ead, $alpha: 0.1);
 }
 
 .blog-header {
@@ -111,20 +113,45 @@ h6 {
   padding: 1.25rem 0;
 }
 
+.card-header {
+  background-color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 15px;
+  color: skyblue;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.card-time {
+  margin-bottom: 6px;
+}
+
+.w-review {
+  color: gray;
+  font-weight: 500;
+}
+
 .card-holder {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 0 1.25rem;
+  margin-bottom: 15px;
 }
 
-.card-body {
+.card-details {
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0.5rem;
 }
 
 .card-content {
-  font-size: 14px;
+  font-size: 15px;
+  color: gray;
 }
 
 /*

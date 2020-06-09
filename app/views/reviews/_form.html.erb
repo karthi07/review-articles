@@ -11,12 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
+  <%= form.label :content, class: "sr-only" %>
+  <%= form.text_field :content, class: "form-control my-2", placeholder: "Express your review" %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%# <%= form.submit class: "btn my-4 btn-lg btn-primary btn-block" %> 
 <% end %>
