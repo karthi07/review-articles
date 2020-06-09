@@ -1,27 +1,12 @@
 
 <div class="card border-light mb-3" >
-  <div class="card-header h3">Reviews</div>
-
-    <% @reviews.each do |review| %>
-
-    <div class="card-holder">
-      <div class="row no-gutters">
-        <div class="col-md-auto">
-          <%# <img src="..." class="card-img" alt="..."> %>
-          <%= image_tag 'Karthick.jpg' , class_name: "card-img", size: "80x80", alt: "User image" %>
-        </div>
-        <div class="col">
-          <div class="card-body">
-            <p class="card-title"><%=  review.user.username %></p>
-            <h5 class="card-title"> <%= review.content %></h5>
-            <p class="card-text"><small class="text-muted"> Updated at : <%= review.update_at %> </small></p>
-          </div>
-        </div>
-      </div>
-
+    <div class="card-header h3">Reviews</div>
+    <div class="card-list">
+    <% @from_time = Time.now %>
+    <%= render @reviews, locals: {from_time: @from_time} %>
     </div>
   </div>
-<% end %>
+
 <br>
 
 <%= link_to 'New Review', new_review_path %>

@@ -5,7 +5,11 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    if user_signed_in?
+      @reviews = Review.where(user: current_user.following_list + [current_user] )
+    else
+      @reviews = Review.all
+    end
   end
 
   # GET /reviews/1
@@ -15,7 +19,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @review = Review.new
+    @review = current_user.reviews.build
   end
 
   # GET /reviews/1/edit
@@ -25,8 +29,7 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
-    @review = Review.new(review_params)
-
+    @review = current_user.reviews.build(review_params)
     respond_to do |format|
       if @review.save
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
@@ -70,6 +73,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.require(:review).permit(:content)
+      params.require(:review).permit(:content,:user_id)
     end
 end
