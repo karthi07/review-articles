@@ -1,0 +1,32 @@
+<div class="user-details">
+  <div class="user-card">
+    <%= image_tag 'Karthick.jpg' , class_name: "card-img", size: "64x64", alt: "User image" %>
+    <div class="fullname">
+      <%= current_user.fullname %>
+    </div>
+  </div>
+  <div class="follow-details">
+    <div>
+      <span > <%= current_user.following_list.count%> </span> Followings
+    </div>
+    <div>
+      <span > <%= current_user.followers_list.count %> </span> Followers
+    </div>
+  </div>
+</div>
+
+<div class="menu-item">
+  Home
+</div>
+<div class="menu-item">
+  Connect
+</div>
+<div class="menu-item">
+  Discover
+</div>
+<div class="menu-item">
+  Profile
+</div>
+<div class="menu-item">
+  Stats
+</div>
