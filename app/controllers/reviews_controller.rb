@@ -14,6 +14,10 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def get_articles
+    render 'articles'
+  end
+
   # GET /reviews/1
   # GET /reviews/1.json
   def show
