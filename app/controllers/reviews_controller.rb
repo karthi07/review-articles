@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @review = Review.new
     if user_signed_in?
       @reviews = Review.where(user: current_user.following_list + [current_user] )
-      @users = User.all
+      @users = current_user.tob_followed
     else
       @reviews = Review.all
     end

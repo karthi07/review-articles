@@ -1,6 +1,9 @@
 <div class="user-card">
-  <%= image_tag 'https://via.placeholder.com/64' , class_name: "card-img", size: "64x64", alt: "User image" %>
+  <%= image_tag avatar_url(user.email) , class_name: "card-img", size: "48x48", alt: "User image" %>
   <div class="fullname">
-    <%= user.fullname %>
+    <%= user.fullname[0..10] %>
+  </div>
+  <div class="follow_btn">
+    <button><%= button_to 'Follow', follow_path_url, params: {user_id: user.id} , method: :post %></button> 
   </div>
 </div>

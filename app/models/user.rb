@@ -12,4 +12,16 @@ class User < ApplicationRecord
   has_many :following, :class_name => "Following", :foreign_key => "follower_id"
   has_many :followers_list, through: :followers, source: :follower
   has_many :following_list, through: :following, source: :followed
+
+  scope :all_but, ->(user) { where.not(id: user) }
+
+  def tob_followed
+    User.all_but(self).map { |usr| usr unless following?(usr) }.compact
+  end
+
+  # Checks for followership
+  def following?(user)
+    following_list.include?(user)
+  end
+
 end
