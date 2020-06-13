@@ -1,6 +1,11 @@
 
 module GravatarHelper
+
   def avatar_url(email)
+    'https://via.placeholder.com/48'
+  end
+
+  def avatar_url_old(email)
     if gravatar?(email)
       gravatar = Digest::MD5::hexdigest(email).downcase
       "http://gravatar.com/avatar/#{gravatar}.png?s=48"
