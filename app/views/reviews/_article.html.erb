@@ -1,10 +1,3 @@
-Hello people
-<% articles = get_articels %>
-
-<%# <%= render 'article', collection: articles ,  as: :article %> 
-
-<% articles.each do |article| %>
-
 <div class="card-holder">
   <div class="row no-gutters">
     <div class="col-md-auto">
@@ -14,16 +7,12 @@ Hello people
     <div class="col">
       <div class="card-body card-details">
         <div class="d-flex justify-content-between">
-        <a href = <%= article[:link]%> target="_blank">
-        <p class="card-title">  <%= article[:title] %>  </p>
-        </a>
+        <p class="card-title"><%=  "Medium / Python" %> </p>
         <%# <p class="text-muted card-time"> <%= get_time(@from_time, review.updated_at)  </p> 'to be implemented'  %>  
         </div>
-        <p class="card-text card-content"><%=  "Medium / Python" %> </p>
+        <p class="card-text card-content"> <%= article[:title] %></p>
       </div>
     </div>
   </div>
 
 </div>
-
-<% end %>

@@ -236,6 +236,13 @@ h6 {
   font-weight: 500;
 }
 
+.card-body a:visited,
+.card-body a:hover {
+  color: inherit;
+  background-color: inherit;
+  text-decoration: none;
+}
+
 /*
  * Footer
  */
