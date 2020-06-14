@@ -3,8 +3,12 @@
 
 <%# <% articles = get_articels %> 
 
-<%# To be implemented %>
-<% push_articles %>
+<%# Helper method to push data to firebase %>
+<%# <% push_articles %>
+
+<div id="react-div">
+
+</div>
 
 <div class="articles-list">
 <%= render partial: 'article', collection: @articles, as: :article || "No Articles found" %>
