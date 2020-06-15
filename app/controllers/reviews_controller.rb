@@ -14,6 +14,10 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def api_articles
+    format.json { render :show, status: :created, location: @review }
+  end
+
   def get_articles
     @users = current_user.tob_followed
     @articles = Article.all
