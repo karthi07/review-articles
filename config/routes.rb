@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :users
   resources :reviews
@@ -7,5 +9,7 @@ Rails.application.routes.draw do
   root to: 'reviews#index'
   #articles
   get 'articles', to: 'reviews#get_articles', as: 'articles_path'
+
+  mount Sidekiq::Web, at: '/sidekiq'
 
 end

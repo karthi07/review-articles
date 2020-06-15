@@ -37,6 +37,9 @@ gem 'jquery-rails'
 gem 'firebase', '~> 0.2.8'
 
 gem 'sidekiq', '~>6.0.0'
+gem "sidekiq-cron", "~> 1.1"
+gem 'sinatra', require: false
+gem 'slim'
 
 gem 'redis', '~> 4.2', '>= 4.2.1'
 
