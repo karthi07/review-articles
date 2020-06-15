@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index]
-
+  before_action :authenticate_user!, except: [:index, :articles_data]
+  
   # GET /reviews
   # GET /reviews.json
   def index
@@ -22,6 +22,12 @@ class ReviewsController < ApplicationController
     @users = current_user.tob_followed
     @articles = Article.all
     render 'articles'
+  end
+
+  def articles_data
+    redis = Redis.new(host: "localhost", port: 6379, db: 0)
+    articles_json = redis.get("articles")
+    render json: articles_json, status: :ok
   end
 
   # GET /reviews/1

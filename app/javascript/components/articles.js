@@ -4,13 +4,16 @@ import Article from "./../components/article";
 class Articles extends Component {
   render() {
     const { articles } = this.props;
-
+    // var data = this.getMoviesFromApi;
     return (
       <div className="articles">
         <h2> Today's Articles </h2>
-        {articles.map((article) => (
-          <Article article={article} key={article.title} />
-        ))}
+
+        <div>
+          {articles.map((article) => (
+            <Article article={article} key={article.title} />
+          ))}
+        </div>
       </div>
     );
   }
