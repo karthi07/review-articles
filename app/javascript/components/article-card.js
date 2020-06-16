@@ -90,10 +90,8 @@ class AricleCard extends React.Component {
 
   render() {
     const classes = this.props.classes;
-
-    // const [expanded, setExpanded] = React.useState(false);
-
     const article = this.props.article;
+
     return (
       <Grid item key={article.title} xs={12} sm={6} md={4}>
         <Card className={classes.root}>
