@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :articles_data]
+  before_action :authenticate_user!, except: [:index, :articles_data, :add_review]
   
   # GET /reviews
   # GET /reviews.json
@@ -19,8 +19,14 @@ class ReviewsController < ApplicationController
   end
 
   def add_review
-    logger.info(params[:review])
-    render json: [], status: :ok
+    # logger.info(params[:review])
+    # byebug
+    @review = current_user.reviews.build(content: params[:review])
+    if @review.save
+      render json: [], status: :ok
+    else
+      render json: @review.errors, status: :unprocessable_entity
+    end
   end
 
   def get_articles
