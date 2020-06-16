@@ -17,6 +17,8 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Icon from "@material-ui/core/Icon";
+import Button from "@material-ui/core/Button";
 
 const useStyles = (theme) => ({
   root: {
@@ -28,6 +30,9 @@ const useStyles = (theme) => ({
   },
   title: {
     fontSize: "1.3rem",
+  },
+  reviewbtn: {
+    margin: theme.spacing(1),
   },
   expand: {
     transform: "rotate(0deg)",
@@ -47,10 +52,20 @@ const useStyles = (theme) => ({
 class AricleCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { expanded: false };
+    this.state = { expanded: false, review: "" };
 
     // This binding is necessary to make `this` work in the callback
     this.handleExpandClick = this.handleExpandClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+    this.setState({ review: event.target.value });
+  }
+
+  handleSubmit(event) {
+    console.log("An essay was submitted: " + this.state.review);
+    event.preventDefault();
   }
 
   handleExpandClick() {
@@ -118,13 +133,25 @@ class AricleCard extends React.Component {
           </CardActions>
           <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <TextField
-                id="outlined-textarea"
-                label="Wrtie your Review"
-                placeholder="Wrtie your Review"
-                multiline
-                variant="outlined"
-              />
+              <form onSubmit={this.handleSubmit}>
+                <TextField
+                  id="outlined-textarea"
+                  label="Wrtie your Review"
+                  placeholder="Wrtie your Review"
+                  value={this.state.review}
+                  onChange={this.handleChange}
+                  multiline
+                  variant="outlined"
+                />
+                <Button
+                  variant="outlined"
+                  type="submit"
+                  className={classes.reviewbtn}
+                  color="primary"
+                >
+                  Post review
+                </Button>
+              </form>
             </CardContent>
           </Collapse>
         </Card>
