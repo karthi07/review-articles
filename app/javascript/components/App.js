@@ -20,7 +20,7 @@ class App extends Component {
     // articles = [{ title: "tech article 2", link: "tech_art1.html" }];
 
     // return <Articles articles={this.state.articles} />;
-    return <Album />;
+    return <Album articles={this.state.articles} />;
   }
 }
 

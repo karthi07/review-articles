@@ -46,16 +46,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AricleCard() {
+export default function AricleCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  const article = props.article;
   return (
-    <Grid item key={card} xs={12} sm={6} md={4}>
+    <Grid item key={article.title} xs={12} sm={6} md={4}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.cardMedia}
@@ -64,7 +64,7 @@ export default function AricleCard() {
         />
         <CardContent className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
-            Heading
+            {article.title}
           </Typography>
           <Typography>
             This is a media card. You can use this section to describe the
@@ -73,10 +73,10 @@ export default function AricleCard() {
         </CardContent>
         <CardActions>
           <Button size="small" color="primary">
-            View
+            Bookmark
           </Button>
           <Button size="small" color="primary">
-            Edit
+            Review
           </Button>
         </CardActions>
       </Card>
