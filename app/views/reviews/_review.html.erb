@@ -2,9 +2,12 @@
 <% if review.article_title %>
   <div class =  "border review-art">
   <div class="card review-art-card">
-    <div class="card-body ">
-    <a href= <%= review.article_link %> >
+    <div class="card-body justify-content-between d-flex">
+      <a href= <%= review.article_link %>  target="_blank" rel="noreferrer">
       <%= review.article_title %>
+      </a>
+      <a class="text-right" href = <%= review.article_link %>  target="_blank" rel="noreferrer">
+      Medium / Python 
       </a>
     </div>
   </div>
