@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
@@ -18,7 +18,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = (theme) => ({
   root: {
     maxWidth: 345,
   },
@@ -42,79 +42,95 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: "#1b2a3d",
   },
-}));
+});
 
-export default function AricleCard(props) {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+class AricleCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { expanded: false };
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+    // This binding is necessary to make `this` work in the callback
+    this.handleExpandClick = this.handleExpandClick.bind(this);
+  }
 
-  const article = props.article;
-  return (
-    <Grid item key={article.title} xs={12} sm={6} md={4}>
-      <Card className={classes.root}>
-        <CardHeader
-          avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
-              M
-            </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title="Medium / Python "
-          subheader="September 14, 2016"
-        />
-        <CardMedia
-          className={classes.media}
-          image="https://source.unsplash.com/random"
-          title="Paella dish"
-        />
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="h2"
-            className={classes.title}
-          >
-            {article.title}
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
-          <IconButton
-            className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded,
-            })}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </IconButton>
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
+  handleExpandClick() {
+    // setExpanded(!expanded);
+    this.setState((state) => ({
+      expanded: !state.expanded,
+    }));
+  }
+
+  render() {
+    const classes = this.props.classes;
+
+    // const [expanded, setExpanded] = React.useState(false);
+
+    const article = this.props.article;
+    return (
+      <Grid item key={article.title} xs={12} sm={6} md={4}>
+        <Card className={classes.root}>
+          <CardHeader
+            avatar={
+              <Avatar aria-label="recipe" className={classes.avatar}>
+                M
+              </Avatar>
+            }
+            action={
+              <IconButton aria-label="settings">
+                <MoreVertIcon />
+              </IconButton>
+            }
+            title="Medium / Python "
+            subheader="September 14, 2016"
+          />
+          <CardMedia
+            className={classes.media}
+            image="https://source.unsplash.com/random"
+            title="Paella dish"
+          />
           <CardContent>
-            <TextField
-              id="outlined-textarea"
-              label="Wrtie your Review"
-              placeholder="Wrtie your Review"
-              multiline
-              variant="outlined"
-            />
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="h2"
+              className={classes.title}
+            >
+              {article.title}
+            </Typography>
           </CardContent>
-        </Collapse>
-      </Card>
-    </Grid>
-  );
+          <CardActions disableSpacing>
+            <IconButton aria-label="add to favorites">
+              <FavoriteIcon />
+            </IconButton>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            <IconButton
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: this.state.expanded,
+              })}
+              onClick={this.handleExpandClick}
+              aria-expanded={this.state.expanded}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          </CardActions>
+          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+              <TextField
+                id="outlined-textarea"
+                label="Wrtie your Review"
+                placeholder="Wrtie your Review"
+                multiline
+                variant="outlined"
+              />
+            </CardContent>
+          </Collapse>
+        </Card>
+      </Grid>
+    );
+  }
 }
+
+export default withStyles(useStyles, { withTheme: true })(AricleCard);
