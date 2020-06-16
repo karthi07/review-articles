@@ -20,7 +20,6 @@ class ReviewsController < ApplicationController
 
   def get_articles
     @users = current_user.tob_followed
-    @articles = Article.all
     render 'articles'
   end
 

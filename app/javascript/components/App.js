@@ -1,20 +1,7 @@
 import React, { Component } from "react";
 import Articles from "./../components/articles";
+import Album from "./../components/articles-ctn";
 
-// const articles = [{ title: "tech article 1", link: "tech_art1.html" }];
-
-// async function getMoviesFromApi() {
-//   try {
-//     let response = await fetch("http://localhost:3000/articles_api");
-//     let responseJson = await response.json();
-//     console.log(responseJson);
-//     return responseJson;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// const articles = [{ title: "tech article 1", link: "tech_art1.html" }];
 class App extends Component {
   state = {
     articles: [],
@@ -32,7 +19,8 @@ class App extends Component {
   render() {
     // articles = [{ title: "tech article 2", link: "tech_art1.html" }];
 
-    return <Articles articles={this.state.articles} />;
+    // return <Articles articles={this.state.articles} />;
+    return <Album />;
   }
 }
 
