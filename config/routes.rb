@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   #articles
   get 'articles', to: 'reviews#get_articles', as: 'articles_path'
   get 'articles_api', to: 'reviews#articles_data', as: 'articles_api_path'
+  post 'add_review', to: 'reviews#add_review', as: 'add_review_api_path'
   mount Sidekiq::Web, at: '/sidekiq'
 
 end

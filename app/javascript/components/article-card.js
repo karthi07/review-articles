@@ -19,6 +19,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
+import axios from "axios";
 
 const useStyles = (theme) => ({
   root: {
@@ -64,8 +65,17 @@ class AricleCard extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log("An essay was submitted: " + this.state.review);
+    // console.log("An essay was submitted: " + this.state.review);
     event.preventDefault();
+    const csrfToken = document.querySelector("[name=csrf-token]").content;
+    axios.defaults.headers.common["X-CSRF-TOKEN"] = csrfToken;
+    const review = { review: this.state.review };
+    axios
+      .post("/add_review", review)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    this.state.review = "";
+    this.handleExpandClick();
   }
 
   handleExpandClick() {

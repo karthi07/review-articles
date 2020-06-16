@@ -18,6 +18,11 @@ class ReviewsController < ApplicationController
     format.json { render :show, status: :created, location: @review }
   end
 
+  def add_review
+    logger.info(params[:review])
+    render json: [], status: :ok
+  end
+
   def get_articles
     @users = current_user.tob_followed
     render 'articles'
