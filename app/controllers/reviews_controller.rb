@@ -7,10 +7,10 @@ class ReviewsController < ApplicationController
   def index
     @review = Review.new
     if user_signed_in?
-      @reviews = Review.where(user: current_user.following_list + [current_user] )
+      @reviews = Review.where(user: current_user.following_list + [current_user] ).ordered_by_most_recent
       @users = current_user.tob_followed
     else
-      @reviews = Review.all
+      @reviews = Review.all.ordered_by_most_recent
     end
   end
 
@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
   def add_review
     # logger.info(params[:review])
     # byebug
-    @review = current_user.reviews.build(content: params[:review])
+    @review = current_user.reviews.build(content: params[:review],article_title: params[:title],article_link: params[:link])
     if @review.save
       render json: [], status: :ok
     else

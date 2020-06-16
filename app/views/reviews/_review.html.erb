@@ -1,3 +1,15 @@
+
+<% if review.article_title %>
+  <div class =  "border review-art">
+  <div class="card review-art-card">
+    <div class="card-body ">
+    <a href= <%= review.article_link %> >
+      <%= review.article_title %>
+      </a>
+    </div>
+  </div>
+<% end %> 
+
 <div class="card-holder">
   <div class="row no-gutters">
     <div class="col-md-auto">
@@ -5,6 +17,7 @@
       <%= image_tag avatar_url(review.user.email), class_name: "card-img", size: "64x64", alt: "User image" %>
     </div>
     <div class="col">
+
       <div class="card-body card-details">
         <div class="d-flex justify-content-between">
         <p class="card-title"><%=  review.user.username %> </p>
@@ -14,5 +27,8 @@
       </div>
     </div>
   </div>
-
 </div>
+
+<% if review.article_title %>
+  </div>
+<%end%>

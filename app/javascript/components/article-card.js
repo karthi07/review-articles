@@ -12,12 +12,11 @@ import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Icon from "@material-ui/core/Icon";
+import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 
@@ -69,7 +68,11 @@ class AricleCard extends React.Component {
     event.preventDefault();
     const csrfToken = document.querySelector("[name=csrf-token]").content;
     axios.defaults.headers.common["X-CSRF-TOKEN"] = csrfToken;
-    const review = { review: this.state.review };
+    const review = {
+      review: this.state.review,
+      title: this.props.article.title,
+      link: this.props.article.link,
+    };
     axios
       .post("/add_review", review)
       .then((res) => console.log(res))
@@ -120,7 +123,9 @@ class AricleCard extends React.Component {
               component="h2"
               className={classes.title}
             >
-              {article.title}
+              <Link href={article.link} target="_blank" rel="noreferrer">
+                {article.title}
+              </Link>
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
