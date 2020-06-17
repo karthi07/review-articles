@@ -30,11 +30,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 
-gem 'bootstrap', '~> 4.5.0'
-
-gem 'jquery-rails'
-
-gem 'firebase', '~> 0.2.8'
 
 gem 'sidekiq', '~>6.0.0'
 gem "sidekiq-cron", "~> 1.1"
