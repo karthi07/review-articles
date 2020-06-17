@@ -291,6 +291,28 @@ h6 {
   font-weight: 500;
 }
 
+.trending-ctn {
+  margin-top: 30px;
+  padding: 0 15px;
+}
+
+.trend-title {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #54687d;
+  font-weight: 600;
+
+  padding-bottom: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ced4da;
+}
+
+.trend-tag {
+  padding: 15px 0;
+  font-size: 16px;
+  color: #54687d;
+}
+
 .card-body a:visited,
 .card-body a:hover {
   color: inherit;
