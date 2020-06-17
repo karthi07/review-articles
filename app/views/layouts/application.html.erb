@@ -10,39 +10,8 @@
   </head>
 
   <body>
-  <% if user_signed_in? %>
-    <div class="row">
-      <div class="left-sidebar col-2">
-        <%= render 'left-sidebar' %>
-      </div>
-      <div class="review-container col-8 container">
-        <%= render 'header_nav'%>
-        <% flash.each do |key , msg|%>
-          <% if key === 'notice' %>
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <%= msg %>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <% elsif key === 'alert' %>
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong> <%= msg %> </strong> 
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <% end %>
-        <% end %>
-        
-        <%= yield %>
-      </div>
-      <div class="right-sidebar col-2"> 
-        <%= render 'right-sidebar' %>
-      </div>
-    </div>
-  <% else %>
+
     <%= yield %>
-  <% end %>
+
   </body>
 </html>

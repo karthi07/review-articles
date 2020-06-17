@@ -325,3 +325,14 @@ h6 {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+// right side bar
+
+.center-ctn {
+  max-width: 78%;
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.right-sidebar {
+  max-width: 22%;
+}
