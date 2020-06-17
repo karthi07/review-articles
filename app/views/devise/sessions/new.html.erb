@@ -1,14 +1,15 @@
-<h2>Log in</h2>
+<div class= "my-4 form-signin">
+<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name) ) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -19,8 +20,9 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "btn my-4 btn-lg btn-primary btn-block" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<h4 class="h4 mb-3 font-weight-normal">New to Portal ? <a class="btn btn-outline-primary my-2 my-sm-0" href= <%= new_user_registration_path %> >  Sign up </a> </h4>
+</div>

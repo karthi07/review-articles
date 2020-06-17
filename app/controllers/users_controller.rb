@@ -1,7 +1,15 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @users = User.all
+  end
+
+  def show
+    # @users = current_user.tob_followed.take(3)
+    @user = User.find(params[:id])
+    @review = Review.new
+    @reviews = Review.where(user: @user ).ordered_by_most_recent
   end
   
   def follow_user

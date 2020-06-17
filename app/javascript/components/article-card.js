@@ -112,7 +112,7 @@ class AricleCard extends React.Component {
           <CardMedia
             className={classes.media}
             image="https://source.unsplash.com/random"
-            title="Paella dish"
+            title="Article image"
           />
           <CardContent>
             <Typography

@@ -1,4 +1,5 @@
 
+
 <div class="row">
   <div class="center-ctn col-10">
 
@@ -21,11 +22,36 @@
         <% end %>
       <% end %>
     </div>
-      <div id="react-div">
+      
+    <div class="reviews">
 
+      <div class=" my-1">
+        <div class="">
+          <img src="https://source.unsplash.com/random" class="card-img user-wall-pic" alt="...">
+        </div>
       </div>
 
-      
+      <div class="card my-4">
+        <div class="card-body">
+          <p class="w-review"> Tweet to <%= @user.fullname%> </p>
+          <%= render 'form', review: @review %>
+        </div>
+      </div>
+
+
+
+      <div class="card border-light my-4" >
+          <div class="card-header ">5 New Reviews</div>
+
+          <div class="card-list">
+          <% @from_time = Time.now %>
+          <%= render @reviews, locals: {from_time: @from_time} %>
+          </div>
+      </div>
+
+      <br>
+    </div>
+
   </div>
   <div class="right-sidebar col"> 
     <%= render 'right-sidebar' %>
@@ -33,4 +59,4 @@
 </div>
 
 
-<%= javascript_pack_tag 'articles' %>
+
