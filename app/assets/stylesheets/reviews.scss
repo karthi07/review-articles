@@ -216,12 +216,16 @@ h6 {
   color: white;
 }
 
+.menu-list {
+  padding-top: 30px;
+}
+
 .menu-item {
   padding: 15px;
   font-size: 16px;
   text-transform: uppercase;
   font-weight: 600;
-  color: white;
+  color: #54687d;
 }
 
 /* Right side bar */
@@ -262,15 +266,20 @@ h6 {
   border-bottom: 1px solid #ced4da;
   padding-bottom: 20px;
   min-height: 40vh;
+  padding-bottom: 30px;
 }
 
 .follow-user-list .user-card {
   padding-left: 0;
 }
+.follow-user-list img {
+  border-radius: 50%;
+}
 
 .link-text {
   font-size: 15px;
   color: #4f9fdc;
+  padding-left: 10px;
 }
 
 .link-text a,
