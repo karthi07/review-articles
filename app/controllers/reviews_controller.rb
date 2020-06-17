@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @review = Review.new
     if user_signed_in?
       @reviews = Review.where(user: current_user.following_list + [current_user] ).ordered_by_most_recent
-      @users = current_user.tob_followed
+      @users = current_user.tob_followed.take(3)
     else
       @reviews = Review.all.ordered_by_most_recent
     end
@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
   end
 
   def get_articles
-    @users = current_user.tob_followed
+    @users = current_user.tob_followed.take(3)
     render 'articles'
   end
 

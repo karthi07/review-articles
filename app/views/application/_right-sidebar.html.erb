@@ -1,10 +1,12 @@
 <div class="to-follow-ctn">
   <div class="search-bar">
-    Seach bar
+    <input type="text" class="form-control search-user" placeholder="WHO TO FOLLOW" aria-label="search-user">
   </div>
 
-  <div class="user-list">
+  <div class="follow-user-list">
     <%= render partial: 'user-card', collection: @users, as: :user  %>
+
+    <span class="link-text"> <a href=""> Popular account </a> <span> . <span class="link-text"> <a href=""> Find friends </a> <span>
   </div>
  
   <div>

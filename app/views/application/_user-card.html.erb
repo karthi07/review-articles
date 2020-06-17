@@ -1,9 +1,16 @@
-<div class="user-card">
-  <%= image_tag avatar_url(user.email) , class_name: "card-img", size: "48x48", alt: "User image" %>
-  <div class="fullname">
-    <%= user.fullname[0..10] %>
-  </div>
-  <div class="follow_btn">
-    <button><%= button_to 'Follow', follow_path_url, params: {user_id: user.id} , method: :post %></button> 
+
+<div class="card-holder user-card">
+  <div class="row no-gutters">
+    <div class="col-md-auto">
+      <%# <img src="..." class="card-img" alt="..."> %>
+      <%= image_tag avatar_url(user.email), class_name: "card-img", size: "48x48", alt: "User image" %>
+    </div>
+    <div class="col">
+
+      <div class="card-body card-details">
+        <p class="card-title"><%=  user.fullname %> </p>
+        <p class="card-text card-content"> <%= "Followed by Sample User" %></p>
+      </div>
+    </div>
   </div>
 </div>
