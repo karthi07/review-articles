@@ -1,40 +1,24 @@
 <div class="to-follow-ctn">
   <div class="user-details">
     <div class="d-flex justify-content-center">
-    <%= image_tag 'add-icon.svg' , class: "follow-img", size: "36x36", alt: "Follow User" %>
+    <% unless (@followers.include?(current_user) or @user == current_user) %>
+    <%= link_to image_tag( 'add-icon.svg', size: "36x36", alt: "Follow User"), follow_path_url(params: {user_id: @user.id}) , method: :post , class: "follow-img"%>
+    <% end %>
     <%= image_tag 'Karthick.jpg' , class: "user-img", size: "80x80", alt: "User image" %>
     <%= image_tag 'card-list.svg' , class: "card-list-img", size: "36x36", alt: "Follow User" %>
     </div>
     <div class="user-info">
-      <div class="name"><%= current_user.fullname %></div>
-      <div class="username"> @<%= current_user.username %></div>
+      <div class="name"><%= @user.fullname %></div>
+      <div class="username"> @<%= @user.username %></div>
     </div>
     <hr />
     <div class="follow-details d-flex justify-content-center follow-info">
-      <div> <span class="count">  <%= @user.following_list.count  %> </span> Tweets </div>
+      <div> <span class="count">  <%= @user.reviews.count  %> </span> Reviews </div>
       <div> <span class="count">  <%= @user.following_list.count  %> </span> Following </div>
-      <div> <span class="count">  <%= @user.following_list.count  %> </span> Followers </div>
+      <div> <span class="count">  <%= @user.followers_list.count  %> </span> Followers </div>
     </div>
     <hr />
   </div>
-<%# 
-  <div class="user-details">
-    <div class="user-card">
-      
-    </div>
-    <div class="follow-details">
-    <div class="fullname">
-        
-      </div>
-      <div>
-        <span >  current_user.following_list.count </span> Followings
-      </div>
-      <div>
-        <span > <%= current_user.followers_list.count  </span> Followers
-      </div>
-    </div>
-  </div> %>
-
  
   <div class= "following-ctn">
     <div class= "following-title">
@@ -42,7 +26,7 @@
     </div>
     
     <div class="follow-user-list">
-      <%= render partial: 'user-card', collection: @users, as: :user  %>
+      <%= render partial: 'user-card', collection: @followers, as: :user  %>
     </div>
   </div>
 

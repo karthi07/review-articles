@@ -40,7 +40,7 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.build(review_params)
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Review was successfully created.' }
         # format.json { render :show, status: :created, location: @review }
       else
         format.html { redirect_back(fallback_location: root_path, alert: 'Please provide a valid review [1 -180 characters] !') }

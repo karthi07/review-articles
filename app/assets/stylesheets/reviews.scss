@@ -414,6 +414,14 @@ hr {
   border-right: 0;
 }
 
+.user-details a,
+.user-details a:visited,
+.user-details a:hover {
+  color: inherit;
+  background-color: inherit;
+  text-decoration: none;
+}
+
 // Articles
 
 .articles-list {
