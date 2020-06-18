@@ -265,9 +265,13 @@ h6 {
 .follow-user-list {
   margin-top: 30px;
   border-bottom: 1px solid #ced4da;
-  padding-left: 15px;
   min-height: 40vh;
   padding-bottom: 30px;
+  color: #54687d;
+}
+
+.following-ctn .follow-user-list {
+  padding-left: 15px;
 }
 
 .follow-user-list .user-card {
@@ -289,6 +293,14 @@ h6 {
   color: inherit;
   background-color: inherit;
   text-decoration: none;
+}
+
+a,
+a:visited,
+a:hover {
+  color: inherit !important;
+  background-color: inherit !important;
+  text-decoration: none !important;
 }
 
 .user-card .card-content {
@@ -328,6 +340,18 @@ h6 {
   color: inherit;
   background-color: inherit;
   text-decoration: none;
+}
+
+.user-profile {
+  padding: 25px 10px;
+}
+
+.profile-name {
+  margin: auto 0;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #54687d;
+  font-weight: 600;
 }
 
 //  User page

@@ -19,6 +19,11 @@ class ReviewsController < ApplicationController
     end
   end
 
+  # def get_article
+  #   redirect_to('/articles')
+  # end
+
+
   #Location where react is loaded
   def get_articles
     @users = current_user.tob_followed.take(3)

@@ -26,7 +26,7 @@
     </div>
     
     <div class="follow-user-list">
-      <%= render partial: 'user-card', collection: @followers, as: :user  %>
+      <%= render( partial: 'user-card', collection: @followers, as: :user)|| "No Users yet" %>
     </div>
   </div>
 

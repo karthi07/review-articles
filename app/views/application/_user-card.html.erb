@@ -8,7 +8,7 @@
     <div class="col">
 
       <div class="card-body card-details">
-        <p class="card-title"><%=  user.fullname %> </p>
+        <p class="card-title"><%= link_to user.fullname , user_path_url(id: user.id) , method: :get , class: "user-name-link" %> </p>
         <p class="card-text card-content"> <%= "Followed by Sample User" %></p>
       </div>
     </div>

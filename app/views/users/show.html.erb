@@ -33,7 +33,10 @@
 
       <div class="card my-4">
         <div class="card-body">
-          <p class="w-review"> Tweet to <%= @user.fullname%> </p>
+          <p class="w-review">
+           <%=
+           current_user != @user ? ("tweet to " + @user.fullname) : "review something" %> 
+          </p>
           <%= render 'form', review: @review %>
         </div>
       </div>
