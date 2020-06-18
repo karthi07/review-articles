@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def show
     # @users = current_user.tob_followed.take(3)
     @user = User.find(params[:id])
+    @users = current_user.tob_followed.take(3)
     @review = Review.new
     @reviews = Review.where(user: @user ).ordered_by_most_recent
   end

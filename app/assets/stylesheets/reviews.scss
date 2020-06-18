@@ -265,7 +265,7 @@ h6 {
 .follow-user-list {
   margin-top: 30px;
   border-bottom: 1px solid #ced4da;
-  padding-bottom: 20px;
+  padding-left: 15px;
   min-height: 40vh;
   padding-bottom: 30px;
 }
@@ -334,6 +334,84 @@ h6 {
 
 .user-wall-pic {
   height: 35vh;
+}
+
+.following-ctn {
+  margin-top: 30px;
+}
+
+.following-title {
+  font-size: 15px;
+  padding-left: 15px;
+  text-transform: uppercase;
+  color: #54687d;
+  font-weight: 600;
+  padding-left: 15px;
+  padding-bottom: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ced4da;
+}
+.user-info {
+  margin-bottom: 30px;
+}
+
+.user-page-sidebar {
+  padding: 0;
+}
+
+.user-info .name {
+  text-align: center !important;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.user-img {
+  border-radius: 50%;
+}
+
+.user-info > .username {
+  text-align: center !important;
+  margin-top: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #54687d;
+}
+.user-details .follow-img,
+.user-details .card-list-img {
+  margin: auto 10px;
+}
+
+.follow-info {
+  color: #54687d;
+}
+
+.follow-info .count {
+  text-align: center !important;
+  // margin-top: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.following-ctn > .follow-user-list {
+  margin-top: 0;
+}
+
+hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  margin: 0;
+}
+
+.follow-info > div {
+  padding: 20px 15px;
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.follow-info > div:last-child {
+  border-right: 0;
 }
 
 // Articles
