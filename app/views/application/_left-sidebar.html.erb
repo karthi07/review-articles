@@ -10,7 +10,7 @@
   <div class="row no-gutters">
     <div class="col-md-auto">
       <%# <img src="..." class="card-img" alt="..."> %>
-      <%= image_tag avatar_url(current_user.email), class_name: "card-img", size: "64x64", alt: "User image" %>
+      <%= image_tag 'https://via.placeholder.com/64', class_name: "card-img", size: "64x64", alt: "User image" %>
     </div>
     <div class="col profile-name">
 
@@ -33,7 +33,7 @@
 
 <div class="menu-list">
   <div class="menu-item">
-    Home
+    <a href= <%= root_path %> >Home </a>
   </div>
   <div class="menu-item">
     Connect
