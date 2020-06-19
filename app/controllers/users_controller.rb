@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @followers = @user.followers_list.take(3)
     @review = Review.new
-    @reviews = Review.where(user: @user).ordered_by_most_recent
+    @reviews = Review.includes(:user).where(user: @user).ordered_by_most_recent
   end
 
   def follow_user
