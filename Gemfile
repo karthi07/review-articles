@@ -44,6 +44,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'nokogiri'
   gem 'shoulda-matchers', '~>3.1'
+  gem 'factory_bot'
+  gem 'selenium-webdriver'
 end
 
 group :development do
