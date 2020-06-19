@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "reviews/new", type: :view do
   before(:each) do
     assign(:review, Review.new(
-      content: "MyString"
+      content: "MyString testing"
     ))
   end
 

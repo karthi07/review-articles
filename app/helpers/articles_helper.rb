@@ -29,9 +29,9 @@ module ArticlesHelper
   def push_articles
 
     #firebase setup
-    base_uri  = 'https://review-articles-a8013.firebaseio.com/'
-    private_key_json_string = File.open('api-key.json').read
-    firebase = Firebase::Client.new(base_uri, private_key_json_string)
+    # base_uri  = 'https://review-articles-a8013.firebaseio.com/'
+    # private_key_json_string = File.open('api-key.json').read
+    # firebase = Firebase::Client.new(base_uri, private_key_json_string)
     
     source = "Medium"
     tag = "Python"
