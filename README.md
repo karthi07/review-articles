@@ -46,20 +46,20 @@
 
 ## About The Project
 
-Read Review Articles - Place to read your favourite and top treding, yet usefull technical articles under a single hood. the best part is, you can review the article and share with your friends, Aka you can get the favorite aticles and their reivews of the person you follow.
+Place to read your favourite and top treading, yet useful technical articles under a single hood. the best part is, you can review the article and share with your friends, Aka you can get the favourite articles and their reviews of the person you follow.
 <br />
 
 ## Technical Components
 
-The Project is Backed by Rails and Sidekiq handles the background job to Retriving and store the articles at redis. React is pluged into rails, which handles reading from redis and displaying the aritcles fetched.
+The Project is Backed by Rails and Sidekiq handles the background job to Retrieving and store the articles at redis. React is plugged into rails, which handles reading from redis and displaying the articles fetched.
 
-### Sidekiq - handles the background job to retriving articles from web
+### Sidekiq - handles the background job to retrieving articles from web
 
-### Redis - Store aricle temp at Server Memory [ wont be stored in Database ] - This is required by project design
+### Redis - Store article temp at Server Memory [ wont be stored in Database ] - This is required by project design
 
-### React - Load articles at realtime. Instead of refereshing the whole page, particular components wil be altered.
+### React - Load articles at real-time. Instead of refreshing the whole page, particular components will be altered.
 
-### Alexa Integration - Yet to be implemenented in prod ( work in progress )
+### Alexa Integration - Yet to be implemented in prod ( work in progress )
 
 ## Live Version
 
