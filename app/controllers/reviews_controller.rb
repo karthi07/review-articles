@@ -1,17 +1,18 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, except: [ :articles_data, :add_review]
-  
+  before_action :authenticate_user!, except: %i[articles_data add_review]
+
   # GET /reviews
   # GET /reviews.json
   def index
     @review = Review.new
-    @reviews = Review.where(user: current_user.following_list + [current_user] ).ordered_by_most_recent
+    @reviews = Review.where(user: current_user.following_list + [current_user]).ordered_by_most_recent
     @users = current_user.tob_followed.take(3)
   end
 
-  #get review from react and insert into db
+  # get review from react and insert into db
   def add_review
-    @review = current_user.reviews.build(content: params[:review],article_title: params[:title],article_link: params[:link])
+    @review = current_user.reviews.build(content: params[:review],
+                                         article_title: params[:title], article_link: params[:link])
     if @review.save
       render json: [], status: :ok
     else
@@ -23,17 +24,19 @@ class ReviewsController < ApplicationController
   #   redirect_to('/articles')
   # end
 
-
-  #Location where react is loaded
+  # Location where react is loaded
+  #
+  # rubocop:disable  Naming/AccessorMethodName
   def get_articles
     @users = current_user.tob_followed.take(3)
     render 'articles'
   end
+  # rubocop:enable  Naming/AccessorMethodName
 
-  #API that server data to react
+  # API that server data to react
   def articles_data
-    redis = Redis.new(host: "localhost", port: 6379, db: 0)
-    articles_json = redis.get("articles")
+    redis = Redis.new(host: 'localhost', port: 6379, db: 0)
+    articles_json = redis.get('articles')
     render json: articles_json, status: :ok
   end
 
@@ -48,7 +51,10 @@ class ReviewsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Review was successfully created.' }
         # format.json { render :show, status: :created, location: @review }
       else
-        format.html { redirect_back(fallback_location: root_path, alert: 'Please provide a valid review [1 -180 characters] !') }
+        format.html do
+          redirect_back(fallback_location: root_path,
+                        alert: 'Please provide a valid review [1 -180 characters] !')
+        end
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
@@ -56,8 +62,8 @@ class ReviewsController < ApplicationController
 
   private
 
-    # Only allow a list of trusted parameters through.
-    def review_params
-      params.require(:review).permit(:content,:user_id)
-    end
+  # Only allow a list of trusted parameters through.
+  def review_params
+    params.require(:review).permit(:content, :user_id)
+  end
 end

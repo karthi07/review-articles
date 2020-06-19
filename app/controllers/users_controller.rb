@@ -10,9 +10,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @followers = @user.followers_list.take(3)
     @review = Review.new
-    @reviews = Review.where(user: @user ).ordered_by_most_recent
+    @reviews = Review.where(user: @user).ordered_by_most_recent
   end
-  
+
   def follow_user
     user_to_follow = User.find(params[:user_id])
 
@@ -25,16 +25,14 @@ class UsersController < ApplicationController
                     alert: 'Oops! something went wrong!')
     end
   end
-
-
 end
 
-  # # GET /reviews/1
-  # # GET /reviews/1.json
-  # def show
-  # end
+# # GET /reviews/1
+# # GET /reviews/1.json
+# def show
+# end
 
-  # # GET /reviews/new
-  # def new
-  #   @review = current_user.reviews.build
-  # end
+# # GET /reviews/new
+# def new
+#   @review = current_user.reviews.build
+# end

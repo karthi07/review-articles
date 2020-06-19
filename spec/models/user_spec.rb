@@ -13,6 +13,5 @@ RSpec.describe User, type: :model do
     it { should have_many(:followers_list).through(:followers) }
     it { should have_many(:followers) }
     it { should have_many(:following_list).through(:following) }
-
   end
 end
