@@ -131,6 +131,7 @@ Then you can you the command `rails s` in your terminial to active live applicat
 
 - [Microverse](https://www.microverse.org/)
 - [Ruby Documentation](https://www.ruby-lang.org/en/documentation/)
+- [Design idea (for twitter clone) by Gregoire Vella on Behance](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details)
 
 ## Show your support
 

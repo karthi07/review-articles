@@ -2,7 +2,6 @@ class LoadArticlesWorker
   include Sidekiq::Worker
 
   def perform
-    # logger.info("Fetching articles")
     puts 'Fetching articles'
     puts 'Articles Loaded'
 
@@ -15,7 +14,6 @@ class LoadArticlesWorker
     article_path = 'div:nth-child(1) > div:nth-child(2) > a:nth-child(1) \
      > section:nth-child(1) > div:nth-child(2) > div:nth-child(1)'
     i = 1
-    # temp_article = Article.new
     collection.each do |c|
       title = c.css(article_path + ' > h3')[0].content.to_s
       link = doc.css('div.u-paddingTop20:nth-child(' + i.to_s + ') > \
@@ -24,12 +22,6 @@ class LoadArticlesWorker
       t = { title: title, link: link }
 
       res.append(t)
-      # response = firebase.set("articles/a_id-"+i.to_s, t)
-      # if response
-      #   puts "data pushed"
-      # else
-      #   puts "errror in saving data"
-      # end
     end
     redis = Redis.new
     redis.set 'articles', res.to_json
