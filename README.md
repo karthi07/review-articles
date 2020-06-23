@@ -66,6 +66,7 @@ The Project is Backed by Rails and Sidekiq handles the background job to Retriev
 ## Live Version
 
 - [Heroku Link](https://read-review-articles.herokuapp.com/)
+  - test user credentials ( eamil: test1@test.com pass: 123456 )
 
 ![Event_management](https://user-images.githubusercontent.com/5237154/85111136-8b64c480-b231-11ea-929c-34d0ae9e04b8.png)
 
