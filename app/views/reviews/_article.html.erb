@@ -1,14 +1,12 @@
 <div class="card-holder">
   <div class="row no-gutters">
     <div class="col-md-auto">
-      <%# <img src="..." class="card-img" alt="..."> %>
       <%= image_tag "https://via.placeholder.com/48", class_name: "card-img", size: "64x64", alt: "User image" %>
     </div>
     <div class="col">
       <div class="card-body card-details">
         <div class="d-flex justify-content-between">
         <p class="card-title"> <%= article.title %>  </p>
-        <%# <p class="text-muted card-time"> <%= get_time(@from_time, review.updated_at)  </p> 'to be implemented'  %>  
         </div>
         <p class="card-text card-content"> <%=  article.source + " / "+ article.tag %> </p>
       </div>
