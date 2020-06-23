@@ -37,7 +37,9 @@
 ## Table of Contents
 
 - [About the Project](#about-the-project)
-  - [Built With](#built-with)
+- [Technical Components](#techincal-components)
+- [Built With](#built-with)
+- [Installation](#Installation)
 - [Contact](#Authors)
 - [Acknowledgements](#acknowledgements)
 - [How it works](#How-it-works)
@@ -81,7 +83,7 @@ This project was built using these technologies.
 - Firebase (yet to be used in prod)
 - Rspec
 
-### Install
+### Installation
 
 To clone the repository, navigate to it's containing directory, and run:
 
@@ -106,6 +108,15 @@ To clone the repository, navigate to it's containing directory, and run:
 This should install all rails gems, and start a local server where vai rails s.
 
 Then you can you the command `rails s` in your terminial to active live application.
+
+## Handling N+1 queries
+
+N + 1 is common problem occur is most of the web application. To solve this, Active Record lets you specify in advance all the associations that are going to be loaded. This is possible by specifying the includes method of the Model.find call. With includes, Active Record ensures that all of the specified associations are loaded using the minimum possible number of queries.
+
+These case are handled in couple of places in this project 
+  - To get the user reviews
+  - @reviews = Review.includes(:user).where(user: @user).ordered_by_most_recent
+  - @reviews = Review.where(user: current_user.following_list + [current_user]).includes([:user]).ordered_by_most_recent
 
 <!-- HOW IT WORKS -->
 
