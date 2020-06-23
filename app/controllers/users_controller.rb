@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :user_params, only: %i[show follow_user]
 
   def index
     @users = User.all
   end
 
   def show
-    # @users = current_user.tob_followed.take(3)
     @user = User.find(params[:id])
     @followers = @user.followers_list.take(3)
     @review = Review.new
@@ -27,12 +27,6 @@ class UsersController < ApplicationController
   end
 end
 
-# # GET /reviews/1
-# # GET /reviews/1.json
-# def show
-# end
-
-# # GET /reviews/new
-# def new
-#   @review = current_user.reviews.build
-# end
+def user_params
+  params.permit(:id, :_method, :authenticity_token)
+end
