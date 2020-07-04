@@ -1,0 +1,33 @@
+<div class="to-follow-ctn">
+  <div class="user-details">
+    <div class="d-flex justify-content-center">
+    <% unless (@followers.include?(current_user) or @user == current_user) %>
+    <%= link_to image_tag( 'add-icon.svg', size: "36x36", alt: "Follow User"), follow_path_url(params: {user_id: @user.id}) , method: :post , class: "follow-img"%>
+    <% end %>
+    <%= image_tag 'https://via.placeholder.com/80' , class: "user-img", size: "80x80", alt: "User image" %>
+    <%= image_tag 'card-list.svg' , class: "card-list-img", size: "36x36", alt: "Follow User" %>
+    </div>
+    <div class="user-info">
+      <div class="name"><%= @user.fullname %></div>
+      <div class="username"> @<%= @user.username %></div>
+    </div>
+    <hr />
+    <div class="follow-details d-flex justify-content-center follow-info">
+      <div> <span class="count">  <%= @user.reviews.count  %> </span> Reviews </div>
+      <div> <span class="count">  <%= @user.following_list.count  %> </span> Following </div>
+      <div> <span class="count">  <%= @user.followers_list.count  %> </span> Followers </div>
+    </div>
+    <hr />
+  </div>
+ 
+  <div class= "following-ctn">
+    <div class= "following-title">
+      Followed by
+    </div>
+    
+    <div class="follow-user-list">
+      <%= render( partial: 'user-card', collection: @followers, as: :user)|| "No Users yet" %>
+    </div>
+  </div>
+
+</div>

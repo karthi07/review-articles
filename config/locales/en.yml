@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+
+  datetime:
+    distance_in_words:
+      short:
+        about_x_hours:
+          one: "an hour"
+          other: "%{count}h"

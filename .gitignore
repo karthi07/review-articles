@@ -27,6 +27,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/api-key.json
+/easy-rsa
+
 
 /public/packs
 /public/packs-test

@@ -1,0 +1,65 @@
+<div class= "my-4 form-signin">
+  <div class="alert-ctn">
+    <% flash.each do |key , msg|%>
+      <% if key === 'notice' %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= msg %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% elsif key === 'alert' %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong> <%= msg %> </strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+      
+
+<h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :fullname %><br />
+    <%= f.text_field :fullname, autofocus: true,class: "form-control", autocomplete: "fullname" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true,class: "form-control", autocomplete: "username" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true,class: "form-control", autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password,class: "form-control", autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, class: "form-control",autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: "btn my-4 btn-lg btn-primary btn-block" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+<h4 class="h4 mb-3 font-weight-normal">Registered already ? <a class="btn btn-outline-primary my-2 my-sm-0" href= <%= new_user_session_path %> >  Sign in </a> </h4>
+</div>

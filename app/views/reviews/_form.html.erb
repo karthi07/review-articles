@@ -1,0 +1,7 @@
+
+<%= form_with(model: review, local: true) do |form| %>
+
+
+  <%= form.label :content, class: "sr-only" %>
+  <%= form.text_field :content, class: "form-control my-2", placeholder: "Express your review" %>
+<% end %>

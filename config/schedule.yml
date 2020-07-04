@@ -1,0 +1,4 @@
+load_article_job:
+  cron: "*/1 * * * *"
+  class: "LoadArticlesWorker"
+  queue: default

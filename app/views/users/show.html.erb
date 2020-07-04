@@ -1,0 +1,65 @@
+
+
+<div class="row">
+  <div class="center-ctn col-10">
+
+    <div class="alert-ctn">
+      <% flash.each do |key , msg|%>
+        <% if key === 'notice' %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <%= msg %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <% elsif key === 'alert' %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong> <%= msg %> </strong> 
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+      
+    <div class="reviews">
+
+      <div class=" my-1">
+        <div class="">
+          <img src="https://via.placeholder.com/820x200?text=User+wall+picture" class="card-img user-wall-pic" alt="...">
+        </div>
+      </div>
+
+      <div class="card my-4">
+        <div class="card-body">
+          <p class="w-review">
+           <%=
+           current_user != @user ? ("tweet to " + @user.fullname) : "review something" %> 
+          </p>
+          <%= render 'form', review: @review %>
+        </div>
+      </div>
+
+
+
+      <div class="card border-light my-4" >
+          <div class="card-header ">5 New Reviews</div>
+
+          <div class="card-list">
+          <% @from_time = Time.now %>
+          <%= render @reviews, locals: {from_time: @from_time} %>
+          </div>
+      </div>
+
+      <br>
+    </div>
+
+  </div>
+  <div class="right-sidebar user-page-sidebar col"> 
+    <%= render 'user-page-sidebar' %>
+  </div>
+</div>
+
+
+

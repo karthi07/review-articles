@@ -4,12 +4,25 @@
     <title>ReviewArticles</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <%= stylesheet_link_tag 'application', media: 'all'%>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
+
+  <% if user_signed_in? %>
+    <div class="row">
+      <div class="left-sidebar col-2">
+        <%= render 'left-sidebar' %>
+      </div>
+      <div class="review-container col-10 container ">
+        <%= render 'header_nav'%>
+        <%= yield %>
+      </div>
+    </div>
+  <% else%> 
     <%= yield %>
+  <% end %>
   </body>
 </html>

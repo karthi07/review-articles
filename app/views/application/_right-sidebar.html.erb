@@ -1,0 +1,39 @@
+<div class="to-follow-ctn">
+  <div class="search-bar">
+    <input type="text" class="form-control search-user" placeholder="WHO TO FOLLOW" aria-label="search-user">
+  </div>
+
+  <div class="follow-user-list">
+    <%= render partial: 'user-card', collection: @users, as: :user  %>
+
+    <span class="link-text"> <a href=""> Popular account </a> <span> . <span class="link-text"> <a href=""> Find friends </a> <span>
+  </div>
+ 
+  <div class= "trending-ctn">
+    <div class= "trend-title">
+      Trending
+    </div>
+    
+    <div class= "trend-tag">
+      # thetrending tag
+    </div>
+
+    <div class= "trend-tag">
+      # Tagtrend Sample Text
+    </div>
+
+    <div class= "trend-tag">
+      # sampletrend
+    </div>
+
+    <div class= "trend-tag">
+      UI TREND
+    </div>
+
+    <div class= "trend-tag">
+      # sampletrend
+    </div>
+
+  </div>
+
+</div>

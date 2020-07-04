@@ -1,0 +1,50 @@
+<div class="user-details">
+  <%# <div class="user-card">
+    <%= image_tag 'Karthick.jpg' , class_name: "card-img", size: "64x64", alt: "User image" 
+    <div class="fullname">
+      <%= current_user.fullname 
+    </div>
+  </div> %>
+
+<div class="user-profile">
+  <div class="row no-gutters">
+    <div class="col-md-auto">
+      <%# <img src="..." class="card-img" alt="..."> %>
+      <%= image_tag 'https://via.placeholder.com/64', class_name: "card-img", size: "64x64", alt: "User image" %>
+    </div>
+    <div class="col profile-name">
+
+      <div class="fullname">
+        <%= link_to current_user.fullname , user_path_url(id: current_user.id) , method: :get , class: "user-name-link" %> 
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="follow-details">
+    <div>
+      <span > <%= current_user.following_list.count%> </span> Followings
+    </div>
+    <div>
+      <span > <%= current_user.followers_list.count %> </span> Followers
+    </div>
+  </div>
+</div>
+
+<div class="menu-list">
+  <div class="menu-item">
+    <a href= <%= root_path %> >Home </a>
+  </div>
+  <div class="menu-item">
+    Connect
+  </div>
+  <div class="menu-item">
+    Discover
+  </div>
+  <div class="menu-item">
+    Profile
+  </div>
+  <div class="menu-item">
+    Stats
+  </div>
+</div>
