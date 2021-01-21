@@ -211,7 +211,7 @@ GEM
     semantic_range (2.3.0)
     shoulda-matchers (3.1.3)
       activesupport (>= 4.0.0)
-    sidekiq (6.1.2)
+    sidekiq (6.1.3)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -290,7 +290,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   shoulda-matchers (~> 3.1)
-  sidekiq (~> 6.1.2)
+  sidekiq (~> 6.1.3)
   sidekiq-cron (~> 1.1)
   sinatra
   slim
