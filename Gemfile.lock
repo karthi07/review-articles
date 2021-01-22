@@ -103,7 +103,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.10.1)
+    jbuilder (2.11.0)
       activesupport (>= 5.0.0)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -279,7 +279,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   factory_bot
-  jbuilder (~> 2.10)
+  jbuilder (~> 2.11)
   listen (~> 3.4)
   nokogiri
   pg (>= 0.18, < 2.0)
