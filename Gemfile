@@ -43,7 +43,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'nokogiri'
-  gem 'shoulda-matchers', '~>3.1'
+  gem 'shoulda-matchers', '~>4.5'
   gem 'factory_bot'
   gem 'selenium-webdriver'
 end
