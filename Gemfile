@@ -31,7 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 
 
-gem 'sidekiq', '~>6.2.1'
+gem 'sidekiq', '~>6.4.0'
 gem "sidekiq-cron", "~> 1.1"
 gem 'sinatra', require: false
 gem 'slim'
